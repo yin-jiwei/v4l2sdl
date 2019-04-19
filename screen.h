@@ -1,0 +1,40 @@
+//
+// Created by yjw on 18-3-13.
+//
+
+#ifndef SWC_SCREEN_H
+#define SWC_SCREEN_H
+
+#include <SDL.h>
+
+struct rgb_surface {
+    SDL_Surface *surface;
+    unsigned int rmask;
+    unsigned int gmask;
+    unsigned int bmask;
+    unsigned int amask;
+    int width;
+    int height;
+    int bpp;
+    int pitch;
+    unsigned char *pixels;
+    int pixels_num;
+};
+
+struct screen {
+    SDL_Surface *display;
+    SDL_Event event;
+    int width;
+    int height;
+    int bpp;
+    int running;
+    struct rgb_surface rgb;
+};
+
+void screen_init();
+
+void screen_quit();
+
+void screen_mainloop();
+
+#endif //SWC_SCREEN_H
